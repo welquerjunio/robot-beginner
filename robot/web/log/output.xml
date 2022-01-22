@@ -1,109 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.10.1 on win32)" generated="20220122 16:34:35.908" rpa="false" schemaversion="2">
-<suite id="s1" name="Select" source="C:\robot-beginner\robot\web\tests\select.robot">
-<test id="s1-t1" name="Selecionar por texto e validar pelo valor">
+<robot generator="Robot 4.1.2 (Python 3.10.1 on win32)" generated="20220122 17:03:35.258" rpa="false" schemaversion="2">
+<suite id="s1" name="Tables" source="C:\robot-beginner\robot\web\tests\tables.robot">
+<test id="s1-t1" name="verifica o valor ao informar o numero de linha">
 <kw name="Nova sessão" library="base" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220122 16:34:36.148" level="INFO">Opening browser 'chrome' to base url 'https://training-wheels-protocol.herokuapp.com'.</msg>
-<status status="PASS" starttime="20220122 16:34:36.148" endtime="20220122 16:34:41.378"/>
+<msg timestamp="20220122 17:03:35.430" level="INFO">Opening browser 'chrome' to base url 'https://training-wheels-protocol.herokuapp.com'.</msg>
+<status status="PASS" starttime="20220122 17:03:35.430" endtime="20220122 17:03:39.874"/>
 </kw>
-<status status="PASS" starttime="20220122 16:34:36.148" endtime="20220122 16:34:41.378"/>
+<status status="PASS" starttime="20220122 17:03:35.430" endtime="20220122 17:03:39.874"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
-<arg>${url}/dropdown</arg>
+<arg>${url}/tables</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220122 16:34:41.378" level="INFO">Opening url 'https://training-wheels-protocol.herokuapp.com/dropdown'</msg>
-<status status="PASS" starttime="20220122 16:34:41.378" endtime="20220122 16:34:42.351"/>
+<msg timestamp="20220122 17:03:39.874" level="INFO">Opening url 'https://training-wheels-protocol.herokuapp.com/tables'</msg>
+<status status="PASS" starttime="20220122 17:03:39.874" endtime="20220122 17:03:40.385"/>
 </kw>
-<kw name="Select From List By Label" library="SeleniumLibrary">
-<arg>class:avenger-list</arg>
-<arg>Scott Lang</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<msg timestamp="20220122 16:34:42.358" level="INFO">Selecting options from selection list 'class:avenger-list' by label Scott Lang.</msg>
-<status status="PASS" starttime="20220122 16:34:42.358" endtime="20220122 16:34:42.469"/>
-</kw>
-<kw name="Get Selected List Value" library="SeleniumLibrary">
-<var>${selected}</var>
-<arg>class:avenger-list</arg>
-<doc>Returns the value of selected option from selection list ``locator``.</doc>
-<msg timestamp="20220122 16:34:42.576" level="INFO">${selected} = 7</msg>
-<status status="PASS" starttime="20220122 16:34:42.469" endtime="20220122 16:34:42.576"/>
-</kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${selected}</arg>
-<arg>7</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20220122 16:34:42.577" endtime="20220122 16:34:42.577"/>
+<kw name="Table Row Should Contain" library="SeleniumLibrary">
+<arg>id:actors</arg>
+<arg>1</arg>
+<arg>$ 10.000.000</arg>
+<doc>Verifies that table row contains text ``expected``.</doc>
+<status status="PASS" starttime="20220122 17:03:40.385" endtime="20220122 17:03:40.507"/>
 </kw>
 <kw name="Encerrar sessão" library="base" type="TEARDOWN">
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20220122 16:34:42.798" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20220122 16:34:42.577" endtime="20220122 16:34:42.798"/>
+<msg timestamp="20220122 17:03:40.701" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-24.png"&gt;&lt;img src="selenium-screenshot-24.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220122 17:03:40.507" endtime="20220122 17:03:40.701"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220122 16:34:42.798" endtime="20220122 16:34:44.977"/>
+<status status="PASS" starttime="20220122 17:03:40.701" endtime="20220122 17:03:42.820"/>
 </kw>
-<status status="PASS" starttime="20220122 16:34:42.577" endtime="20220122 16:34:44.977"/>
+<status status="PASS" starttime="20220122 17:03:40.507" endtime="20220122 17:03:42.820"/>
 </kw>
-<status status="PASS" starttime="20220122 16:34:36.148" endtime="20220122 16:34:44.977"/>
+<status status="PASS" starttime="20220122 17:03:35.430" endtime="20220122 17:03:42.820"/>
 </test>
-<test id="s1-t2" name="Selecionar pelo valor e validar pelo texto">
+<test id="s1-t2" name="Descobre a linha pelo texto chave e valida os demais valores">
 <kw name="Nova sessão" library="base" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220122 16:34:44.977" level="INFO">Opening browser 'chrome' to base url 'https://training-wheels-protocol.herokuapp.com'.</msg>
-<status status="PASS" starttime="20220122 16:34:44.977" endtime="20220122 16:34:49.059"/>
+<msg timestamp="20220122 17:03:42.820" level="INFO">Opening browser 'chrome' to base url 'https://training-wheels-protocol.herokuapp.com'.</msg>
+<status status="PASS" starttime="20220122 17:03:42.820" endtime="20220122 17:04:01.565"/>
 </kw>
-<status status="PASS" starttime="20220122 16:34:44.977" endtime="20220122 16:34:49.059"/>
+<status status="PASS" starttime="20220122 17:03:42.820" endtime="20220122 17:04:01.565"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
-<arg>${url}/dropdown</arg>
+<arg>${url}/tables</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220122 16:34:49.060" level="INFO">Opening url 'https://training-wheels-protocol.herokuapp.com/dropdown'</msg>
-<status status="PASS" starttime="20220122 16:34:49.060" endtime="20220122 16:34:49.438"/>
+<msg timestamp="20220122 17:04:01.565" level="INFO">Opening url 'https://training-wheels-protocol.herokuapp.com/tables'</msg>
+<status status="PASS" starttime="20220122 17:04:01.565" endtime="20220122 17:04:02.278"/>
 </kw>
-<kw name="Select From List By Value" library="SeleniumLibrary">
-<arg>id:dropdown</arg>
-<arg>6</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20220122 16:34:49.438" level="INFO">Selecting options from selection list 'id:dropdown' by value 6.</msg>
-<status status="PASS" starttime="20220122 16:34:49.438" endtime="20220122 16:34:49.527"/>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${target}</var>
+<arg>xpath:.//tr[contains(., '@chadwickboseman')]</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20220122 17:04:02.302" level="INFO">${target} = &lt;selenium.webdriver.remote.webelement.WebElement (session="81f180232e67cedd4f125b051c7b8ff7", element="49f4006e-0468-4a22-b856-65be9f6fd1c9")&gt;</msg>
+<status status="PASS" starttime="20220122 17:04:02.278" endtime="20220122 17:04:02.302"/>
 </kw>
-<kw name="Get Selected List Label" library="SeleniumLibrary">
-<var>${selected}</var>
-<arg>id:dropdown</arg>
-<doc>Returns the label of selected option from selection list ``locator``.</doc>
-<msg timestamp="20220122 16:34:49.628" level="INFO">${selected} = Loki</msg>
-<status status="PASS" starttime="20220122 16:34:49.527" endtime="20220122 16:34:49.628"/>
+<kw name="Log" library="BuiltIn">
+<arg>${target.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220122 17:04:02.334" level="INFO">Chadwick Boseman Pantera Negra Vingadores $ 700.000 @chadwickboseman edit delete</msg>
+<status status="PASS" starttime="20220122 17:04:02.302" endtime="20220122 17:04:02.334"/>
 </kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${selected}</arg>
-<arg>Loki</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20220122 16:34:49.628" endtime="20220122 16:34:49.628"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${target.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220122 17:04:02.334" endtime="20220122 17:04:02.350"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${target.text}</arg>
+<arg>$ 700.000</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220122 17:04:02.350" endtime="20220122 17:04:02.365"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${target.text}</arg>
+<arg>Pantera Negra</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220122 17:04:02.365" endtime="20220122 17:04:02.381"/>
 </kw>
 <kw name="Encerrar sessão" library="base" type="TEARDOWN">
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20220122 16:34:49.870" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20220122 16:34:49.628" endtime="20220122 16:34:49.870"/>
+<msg timestamp="20220122 17:04:02.620" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-25.png"&gt;&lt;img src="selenium-screenshot-25.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220122 17:04:02.381" endtime="20220122 17:04:02.620"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220122 16:34:49.870" endtime="20220122 16:34:51.997"/>
+<status status="PASS" starttime="20220122 17:04:02.620" endtime="20220122 17:04:04.734"/>
 </kw>
-<status status="PASS" starttime="20220122 16:34:49.628" endtime="20220122 16:34:51.997"/>
+<status status="PASS" starttime="20220122 17:04:02.381" endtime="20220122 17:04:04.734"/>
 </kw>
-<status status="PASS" starttime="20220122 16:34:44.977" endtime="20220122 16:34:51.997"/>
+<status status="PASS" starttime="20220122 17:03:42.820" endtime="20220122 17:04:04.735"/>
 </test>
-<status status="PASS" starttime="20220122 16:34:35.911" endtime="20220122 16:34:51.997"/>
+<status status="PASS" starttime="20220122 17:03:35.258" endtime="20220122 17:04:04.736"/>
 </suite>
 <statistics>
 <total>
@@ -112,7 +109,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Select">Select</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Tables">Tables</stat>
 </suite>
 </statistics>
 <errors>
